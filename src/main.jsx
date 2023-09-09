@@ -7,8 +7,10 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
-import Root from "./routes/root.jsx";
+import Root from "./routes/Root.jsx";
 import ErrorPage from "./error-page.jsx";
+import Shop from "./routes/shop.jsx";
+import Index from "./routes/Index.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,7 +19,15 @@ const router = createBrowserRouter(
     element={<Root />} 
     errorElement={<ErrorPage />}
   >
+    <Route errorElement={<ErrorPage />}>
+      <Route index element={<Index />} />
+      <Route 
+        path="/shop" 
+        element={<Shop />} 
+      />
+    </Route>
   </Route>
+  
   )
 );
 
